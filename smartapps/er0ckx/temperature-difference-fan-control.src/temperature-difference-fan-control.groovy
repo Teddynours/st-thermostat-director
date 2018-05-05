@@ -20,7 +20,7 @@ definition(
 		)
 
 preferences {
-	section("Title") {
+	section("Configuration") {
 		input "thermostat", "capability.thermostat", title: "Which Thermostat ? ", multi : false, required: true
 		input "tempSensor", "capability.temperatureMeasurement", title: "Which temperature sensor ? ", multi : false, required: true
 		input "tempDiff", "number", title: "Temperature Difference to turn fan on ? ", required : true, defaultValue: 2
