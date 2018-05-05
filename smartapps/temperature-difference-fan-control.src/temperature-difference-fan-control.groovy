@@ -22,11 +22,11 @@ definition(
 )
 
 section {
-	input" thermostat", "capability.thermostat", title: "Which Thermostat ? ", multi : false, required: true
-	input" tempSensor", "capability.temperatureMeasurement", title: "Which temperature sensor ? ", multi : false, required: true
-	input" tempDiff", "number", title: "Temperature Difference to turn fan on ? ", required : true, defaultValue: 2
-	input" sendPushMessage", "bool", title: "Send a push notification ? ", required : false, defaultValue: true
-	input" sendSMS", "phone", title: "Send as SMS ? ", required : false, defaultValue: false
+	input "thermostat", "capability.thermostat", title: "Which Thermostat ? ", multi : false, required: true
+	input "tempSensor", "capability.temperatureMeasurement", title: "Which temperature sensor ? ", multi : false, required: true
+	input "tempDiff", "number", title: "Temperature Difference to turn fan on ? ", required : true, defaultValue: 2
+	input "sendPushMessage", "bool", title: "Send a push notification ? ", required : false, defaultValue: true
+	input "sendSMS", "phone", title: "Send as SMS ? ", required : false, defaultValue: false
 
 }
 
