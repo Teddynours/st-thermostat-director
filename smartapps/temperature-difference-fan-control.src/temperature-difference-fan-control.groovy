@@ -1,9 +1,7 @@
 /**
  Duane’s Thermostat Fan Director
- 
  Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except
  in compliance with the License. You may obtain a copy of the License at: http://www.apache.org/licenses/LICENSE-2.0
- 
  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed
  on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License
  for the specific language governing permissions and limitations under the License.
@@ -12,33 +10,34 @@
 // Automatically generated. Make future change here.
 
 definition(
-	name: "temperature-difference-fan-control",
-	namespace: "er0ckx",
-	author: "Tim Slagle Modified by: Duane Helmuth",
-	description: "Adjust your thermostat fan based on the temperature of a secondary temperature sensor",
-	category: "Green Living",
-	iconUrl: "http://icons.iconarchive.com/icons/icons8/windows-8/512/Science-Temperature-icon.png",
-	iconX2Url: "http://icons.iconarchive.com/icons/icons8/windows-8/512/Science-Temperature-icon.png"
-)
+		name: "temperature-difference-fan-control",
+		namespace: "er0ckx",
+		author: "Tim Slagle Modified by: Duane Helmuth",
+		description: "Adjust your thermostat fan based on the temperature of a secondary temperature sensor",
+		category: "Green Living",
+		iconUrl: "http://icons.iconarchive.com/icons/icons8/windows-8/512/Science-Temperature-icon.png",
+		iconX2Url: "http://icons.iconarchive.com/icons/icons8/windows-8/512/Science-Temperature-icon.png"
+		)
 
-section {
-	input "thermostat", "capability.thermostat", title: "Which Thermostat ? ", multi : false, required: true
-	input "tempSensor", "capability.temperatureMeasurement", title: "Which temperature sensor ? ", multi : false, required: true
-	input "tempDiff", "number", title: "Temperature Difference to turn fan on ? ", required : true, defaultValue: 2
-	input "sendPushMessage", "bool", title: "Send a push notification ? ", required : false, defaultValue: true
-	input "sendSMS", "phone", title: "Send as SMS ? ", required : false, defaultValue: false
-
+preferences {
+	section("Title") {
+		input "thermostat", "capability.thermostat", title: "Which Thermostat ? ", multi : false, required: true
+		input "tempSensor", "capability.temperatureMeasurement", title: "Which temperature sensor ? ", multi : false, required: true
+		input "tempDiff", "number", title: "Temperature Difference to turn fan on ? ", required : true, defaultValue: 2
+		input "sendPushMessage", "bool", title: "Send a push notification ? ", required : false, defaultValue: true
+		input "sendSMS", "phone", title: "Send as SMS ? ", required : false, defaultValue: false
+	}
 }
 
 def installed() {
 	log.debug "Installed called with ${settings}"
-	init()
+	initialize()
 }
 
 def updated() {
 	log.debug "Updated called with ${settings}"
 	unsubscribe()
-	init()
+	initialize()
 }
 
 def initialize() {
