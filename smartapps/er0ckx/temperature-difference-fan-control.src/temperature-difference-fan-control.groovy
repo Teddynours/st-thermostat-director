@@ -81,7 +81,7 @@ def temperatureHandler(evt) {
 	} else {
 		if (currentThermFan != "fanAuto") {
 			//set the therm fan state to AUTO
-			def msg = "I changed your ${thermostat} fan mode to AUTO because temperature difference is in range of ${tempSensor}"
+			def msg = "I changed your ${thermostat} fan mode to AUTO because temperature difference is in range of ${tempSensor} and current fan value is ${currentThermFan}"
 			thermostat?.fanAuto()
 			thermostat?.poll()
 			log.debug msg
